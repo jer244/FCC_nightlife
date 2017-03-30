@@ -1,0 +1,13 @@
+<h1>Welcome to the my nightlife app!</h1>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="form-group">
+        <label for="location">Location</label>
+        <input 
+            type="text"
+            class="form-control"
+            id="location"
+            ngModel
+            name="location">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
