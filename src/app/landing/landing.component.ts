@@ -16,10 +16,7 @@ export class LandingComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.yfs.getBars().subscribe(
-      data => { 
-        console.log(data)
-      });
+    this.yfs.getBars(form.value.location);  
   }
 
 }

@@ -10,12 +10,12 @@ router.get('/', (req, res) => {
 
 });
 
-router.get('/bars', (req, res) => {
+router.get('/bars/:location', (req, res) => {
     client.search({
-        location: 'longmeadow, ma',
+        location: req.params.location,
         term: 'bars'
     }).then(response => {
-        res.send(response.jsonBody.businesses[0].name);
+        res.send(response.jsonBody.businesses);
     });
 });
 

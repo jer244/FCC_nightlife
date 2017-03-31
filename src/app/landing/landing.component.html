@@ -6,8 +6,10 @@
             type="text"
             class="form-control"
             id="location"
+            required
             ngModel
             name="location">
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
 </form>
+<nl-venue-display></nl-venue-display>
