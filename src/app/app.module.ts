@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { LandingComponent } from './landing/landing.component';
+import { YelpFusionService } from './yelp-fusion.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { LandingComponent } from './landing/landing.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [YelpFusionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
