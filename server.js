@@ -3,11 +3,18 @@ const express = require('express');
 const path = require('path');
 const http = require('http');
 const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+
+require('dotenv').config();  //comment out for production
 
 //get our API routes
-const api = require('./server/routes/api');
+const apiRoutes = require('./server/routes/api');
+const userRoutes = require('./server/routes/user');
 
 const app = express();
+
+mongoose.connect('mongodb://' + process.env.DB_USER + ':' + process.env.DB_PASS + '@' + process.env.DB_HOST);
+mongoose.Promise = global.Promise;
 
 //parsers for post data
 app.use(bodyParser.json());
@@ -16,8 +23,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
-//set our API routes
-app.use('/api', api);
+//set our routes
+app.use('/user', userRoutes);
+app.use('/api', apiRoutes);
+
 
 //catch all other routes and return the index file
 app.get('*', (req, res) => {

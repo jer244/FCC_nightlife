@@ -19,5 +19,6 @@ router.get('/bars/:location', (req, res) => {
     });
 });
 
+//mongoose.connect('mongodb://test:test@ds157040.mlab.com:57040/fcc-nightlife');
 
 module.exports = router;
