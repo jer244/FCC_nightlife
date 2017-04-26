@@ -5,7 +5,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-require('dotenv').config();  //comment out for production
+require('dotenv').config();  //comment for production
 
 //get our API routes
 const apiRoutes = require('./server/routes/api');
