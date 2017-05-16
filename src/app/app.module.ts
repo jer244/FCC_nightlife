@@ -13,6 +13,7 @@ import { SignupComponent } from './auth/signup.component';
 import { SigninComponent } from './auth/signin.component';
 import { LogoutComponent } from './auth/logout.component';
 import { routing } from "./app.routing";
+import { AuthService } from "./auth/auth.service";
 
 @NgModule({
   declarations: [
@@ -31,7 +32,10 @@ import { routing } from "./app.routing";
     HttpModule,
     routing
   ],
-  providers: [YelpFusionService],
+  providers: [
+    YelpFusionService,
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

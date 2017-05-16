@@ -14,7 +14,7 @@ export class YelpFusionService {
 
   getBars(location: string) {
     this.venues=[];
-    //Yelp API prohibits calls from client, so must use backend 
+    //Yelp API prohibits calls from client, must use backend 
     return this.http.get('/api/bars/' + location)
       .map((response: Response) => response.json())
         .subscribe(

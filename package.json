@@ -25,9 +25,14 @@
     "core-js": "^2.4.1",
     "dotenv": "^4.0.0",
     "express": "^4.15.2",
+    "jsonwebtoken": "^7.4.0",
+    "lodash": "^4.17.4",
     "mongoose": "^4.9.3",
     "ng2-bootstrap": "^1.6.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
     "rxjs": "^5.1.0",
+    "typescript": "^2.0.10",
     "yelp-fusion": "^1.0.3",
     "zone.js": "^0.7.6"
   },
@@ -42,12 +47,12 @@
     "karma": "~1.4.1",
     "karma-chrome-launcher": "~2.0.0",
     "karma-cli": "~1.0.1",
+    "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "karma-coverage-istanbul-reporter": "^0.2.0",
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.4.2",
-    "typescript": "~2.0.0"
+    "typescript": "^2.3.2"
   }
 }

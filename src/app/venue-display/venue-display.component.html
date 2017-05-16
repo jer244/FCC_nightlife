@@ -2,10 +2,13 @@
     <div class="row">
         <div class="col-xs-12">
             <a target="_blank" *ngFor="let venue of venues; let i index" href="{{venue.url}}" class="list-group-item clearfix">
-                <div class="pull-left">
+                <div class="col-xs-5 pull-left">
                     <h4 class="list-group-item-heading">{{venue.name}}</h4>
                     <p class="list-group-item-text">Rating:{{venue.rating}}</p>
                     <p class="list-group-item-text">Based on {{venue.review_count}} reviews</p>
+                </div>
+                <div class="col-xs-2 p__attendanceDisplay">
+                    <p># going</p>
                 </div>
                 <span class="pull-right">
                     <img class="img-responsive"

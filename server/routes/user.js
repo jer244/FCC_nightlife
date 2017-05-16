@@ -1,12 +1,13 @@
 var express = require('express');
 var router = express.Router();
+var bcrypt = require('bcrypt-nodejs');
 
 var User = require('../models/user');
 
 router.post('/', function (req, res, next) {
     var user = new User({
         username: req.body.username,
-        password: this.encryptPassword(req.body.password)
+        password: bcrypt.hashSync(req.body.password, 10)
     });
     user.save(function(err, result) {
         if (err) {
