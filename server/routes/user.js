@@ -7,7 +7,7 @@ var User = require('../models/user');
 router.post('/', function (req, res, next) {
     var user = new User({
         username: req.body.username,
-        password: bcrypt.hashSync(req.body.password, 10)
+        password: bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(5), null)
     });
     user.save(function(err, result) {
         if (err) {
