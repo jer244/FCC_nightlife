@@ -15,7 +15,6 @@ jwtOptions.jwtFromRequest = ExtractJwt.fromAuthHeader();
 jwtOptions.secretOrKey = process.env.JWT_KEY;
 
 router.post('/signup', function (req, res, next) {
-
     User.findOne({'username': req.body.username}, function(err, user){
         if (err) {
             return res.status(500).json({
@@ -41,7 +40,6 @@ router.post('/signup', function (req, res, next) {
 });
 
 router.post('/login', function (req, res, next) {
-
     User.findOne({'username': req.body.username}, function(err, user){
         if (err) {
             return res.status(500).json({

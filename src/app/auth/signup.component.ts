@@ -12,11 +12,19 @@ export class SignupComponent implements OnInit {
     constructor(private authService: AuthService) {}    
 
     onSubmit(form: NgForm) {
-      this.authService.signup(form.value.username, form.value.password)
-          .subscribe(
-            data => console.log(data),
-            error => console.log(error)
-          );
+         const user = new User(
+          form.value.username, 
+          form.value.password
+        );
+        this.authService.signup(user)
+            .subscribe(
+                (data) => {
+                    localStorage.setItem('token', data.token);
+                    console.log(data);
+                    console.log(localStorage.getItem('token'));
+                },
+                error => console.log(error)
+            );
         form.reset();
     }
 

@@ -18,9 +18,13 @@ export class LoginComponent implements OnInit {
         );
         this.authService.login(user)
           .subscribe(
-            data => console.log(data),
-            error => console.log(error)
-          );
+                (data) => {
+                    localStorage.setItem('token', data.token);
+                    console.log(data);
+                    console.log(localStorage.getItem('token'));
+                },
+                error => console.log(error)
+            );
         form.reset();
     }
     ngOnInit() {

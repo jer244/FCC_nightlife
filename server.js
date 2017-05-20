@@ -33,33 +33,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/user', userRoutes);
 app.use('/api', apiRoutes);
 
-
-/*
-app.post("/login", function(req, res) {
-    if(req.body.username && req.body.password) {
-        var name = req.body.username;
-        var password = req.body.password;
-    }
-    User.findOne({'username': name}, function(err, user){
-        if (!user){
-            res.status(401).json({message:"no such user found"});
-        } 
-        if(user.password === req.body.password) {
-            var token = jwt.sign({id: user._id}, jwtOptions.secretOrKey, { expiresIn: '24h'});
-            res.json({message: "ok", token: token});
-        }
-        else {
-            res.status(401).json({message:"passwords did not match"});
-        }
-    });
-})
-
-app.get("/protected", passport.authenticate('jwt', {session: false}), function(req, res){
-    res.json("Success beeoch!!");
-})
-
-*/
-
 //catch all other routes and return the index file
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'dist/index.html'));
