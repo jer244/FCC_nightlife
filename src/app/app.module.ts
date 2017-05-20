@@ -10,7 +10,7 @@ import { VenueDisplayComponent } from './venue-display/venue-display.component';
 import { HeaderComponent } from './partials/header.component';
 import { AuthenticationComponent } from './auth/authentication.component';
 import { SignupComponent } from './auth/signup.component';
-import { SigninComponent } from './auth/signin.component';
+import { LoginComponent } from './auth/login.component';
 import { LogoutComponent } from './auth/logout.component';
 import { routing } from "./app.routing";
 import { AuthService } from "./auth/auth.service";
@@ -23,7 +23,7 @@ import { AuthService } from "./auth/auth.service";
     HeaderComponent,
     AuthenticationComponent,
     SignupComponent,
-    SigninComponent,
+    LoginComponent,
     LogoutComponent
   ],
   imports: [

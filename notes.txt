@@ -1,0 +1,5 @@
+routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+
+bcrypt.hashSync(req.body.password, 10)
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4ZWJhNzQxNmFjMTcwMWRjMGIzOWUwNyIsImlhdCI6MTQ5NDk4MDUzNH0.inRjgTrFwgcOyNY1KxzVpps8rRip361e-Lo6yBKFrGw

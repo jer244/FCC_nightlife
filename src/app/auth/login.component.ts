@@ -4,22 +4,25 @@ import { AuthService } from "./auth.service";
 import { User } from "./user.model";
 
 @Component({
-    selector: 'nl-signup',
-    templateUrl: './signup.component.html'
+  selector: 'nl-login',
+  templateUrl: './login.component.html'
 })
-export class SignupComponent implements OnInit {
 
+export class LoginComponent implements OnInit {
     constructor(private authService: AuthService) {}    
 
     onSubmit(form: NgForm) {
-      this.authService.signup(form.value.username, form.value.password)
+        const user = new User(
+          form.value.username, 
+          form.value.password
+        );
+        this.authService.login(user)
           .subscribe(
             data => console.log(data),
             error => console.log(error)
           );
         form.reset();
     }
-
     ngOnInit() {
     }
 }
