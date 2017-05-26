@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Response } from '@angular/http';
 
-import { YelpFusionService } from '../yelp-fusion.service';
 import { AuthService } from "../auth/auth.service";
+import { ApiService } from "../api.service";
+
 
 @Component({
   selector: 'nl-landing',
@@ -11,12 +13,23 @@ import { AuthService } from "../auth/auth.service";
 })
 export class LandingComponent implements OnInit {
 
-  constructor(private yfs: YelpFusionService, private authService: AuthService) { }
+  constructor(private authService: AuthService, private apiService: ApiService) { }
 
   ngOnInit() {
   }
 
+    hasToken(){  
+    return this.authService.hasToken();
+  }
+
+  testProtected() {
+    this.apiService.checkProtected()
+      .subscribe(
+        (data: Response) => console.log(data)
+      );
+  }
+
   onSubmit(form: NgForm) {
-    this.yfs.getBars(form.value.location);  
+    this.apiService.getBars(form.value.location);  
   }
 }

@@ -1,7 +1,7 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 
-import { YelpFusionService } from '../yelp-fusion.service';
 import { AuthService } from "../auth/auth.service";
+import { ApiService } from "../api.service";
 import { Venue } from '../venue';
 
 @Component({
@@ -13,10 +13,10 @@ export class VenueDisplayComponent implements OnInit, OnChanges {
 
   venues: Venue[] = [];
 
-  constructor(private yfs: YelpFusionService, private authService: AuthService) { }
+  constructor(private apiService: ApiService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.yfs.changeInVenues.subscribe(
+    this.apiService.changeInVenues.subscribe(
       (newVenues: Venue[]) => this.venues = newVenues
       );
   }

@@ -1,11 +1,12 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Response, Http } from '@angular/http';
+import { Headers, Response, Http } from '@angular/http';
 import 'rxjs/Rx';
+import { Observable } from 'rxjs';
 
 import { Venue } from './venue';
 
 @Injectable()
-export class YelpFusionService {
+export class ApiService {
 
   changeInVenues = new EventEmitter<Venue[]>();
   private venues: Venue[];
@@ -25,4 +26,12 @@ export class YelpFusionService {
             this.changeInVenues.emit(this.venues);
           });
   }
+
+   checkProtected() {
+      const headers = new Headers({'Authorization': "JWT " + localStorage.getItem('token')});
+      return this.http.get('http://localhost:3000/api/protected', {headers: headers})
+          .map((response: Response) => response.json())
+          .catch((error: Response) => Observable.throw(error));
+    }   
+  
 }
