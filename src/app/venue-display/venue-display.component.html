@@ -7,7 +7,7 @@
                     <p class="list-group-item-text">Rating:{{venue.rating}}</p>
                     <p class="list-group-item-text">Based on {{venue.review_count}} reviews</p>
                 </div>
-                <div class="col-xs-2 p__attendanceDisplay">
+                <div *ngIf="hasToken()" class="col-xs-2 p__attendanceDisplay">
                     <p># going</p>
                 </div>
                 <span class="pull-right">

@@ -18,8 +18,8 @@ router.get('/bars/:location', (req, res) => {
     });
 });
 
-router.get('/secret', passport.authenticate('jwt-strategy', {session: false}), (req, res) => {
-    res.send('token works!!');
+router.get('/verify', passport.authenticate('jwt-strategy', {session: false}), (req, res) => {
+    res.send(req.user);
 })
 
 //mongoose.connect('mongodb://test:test@ds157040.mlab.com:57040/fcc-nightlife');

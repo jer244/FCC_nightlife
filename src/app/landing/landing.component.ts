@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 import { YelpFusionService } from '../yelp-fusion.service';
+import { AuthService } from "../auth/auth.service";
 
 @Component({
   selector: 'nl-landing',
@@ -10,7 +11,7 @@ import { YelpFusionService } from '../yelp-fusion.service';
 })
 export class LandingComponent implements OnInit {
 
-  constructor(private yfs: YelpFusionService) { }
+  constructor(private yfs: YelpFusionService, private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -18,5 +19,4 @@ export class LandingComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.yfs.getBars(form.value.location);  
   }
-
 }

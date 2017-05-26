@@ -55,5 +55,10 @@ router.post('/login', function (req, res, next) {
     });
 });
 
+router.get('/verify', passport.authenticate('jwt-strategy', {session: false}), (req, res) => {
+    res.send({'verified': true});
+})
+
+
 
 module.exports = router;

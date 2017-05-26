@@ -6,7 +6,8 @@ export class Venue {
         public url: string,
         public review_count: number,
         public price: string,
-        public id: string
+        public id: string,
+        public attendance: number
     ) {};
 }
 

@@ -20,7 +20,7 @@ export class YelpFusionService {
         .subscribe(
           (data) => {
             for (let i=0; i<data.length; i++){
-              this.venues.push(new Venue(data[i].name, data[i].image_url, data[i].rating, data[i].url, data[i].review_count, data[i].price, data[i].id))
+              this.venues.push(new Venue(data[i].name, data[i].image_url, data[i].rating, data[i].url, data[i].review_count, data[i].price, data[i].id, null))
             };
             this.changeInVenues.emit(this.venues);
           });
