@@ -23,6 +23,7 @@ export class LandingComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    this.apiService.getBars(form.value.location);  
+    this.apiService.getBars(form.value.location);
+    form.reset();
   }
 }

@@ -1,4 +1,8 @@
-<ul class="list-group">
+<!--
+    Display of venues if user has token
+        -includes # of people attending and ability to add self to list
+-->
+<ul class="list-group" *ngIf="hasToken()">
     <div class="row">
         <div class="col-xs-12">
             <a target="_blank" *ngFor="let venue of venues; let i index" href="{{venue.url}}" class="list-group-item clearfix">
@@ -7,8 +11,30 @@
                     <p class="list-group-item-text">Rating:{{venue.rating}}</p>
                     <p class="list-group-item-text">Based on {{venue.review_count}} reviews</p>
                 </div>
-                <div *ngIf="hasToken()" class="col-xs-2 p__attendanceDisplay">
+                <div class="col-xs-2 p__attendanceDisplay">
                     <p># going</p>
+                </div>
+                <span class="pull-right">
+                    <img class="img-responsive"
+                        src="{{venue.image_url}}"
+                        style="max-height: 50px;"/>
+                </span>
+            </a>
+        </div>
+    </div>
+</ul>
+<!--
+    Display of venues if user does NOT have token
+        -Does not include # of people attending or ability to add/remove self from list
+-->
+<ul class="list-group" *ngIf="!hasToken()">
+    <div class="row">
+        <div class="col-xs-12">
+            <a target="_blank" *ngFor="let venue of venues; let i index" href="{{venue.url}}" class="list-group-item clearfix">
+                <div class="col-xs-5 pull-left">
+                    <h4 class="list-group-item-heading">{{venue.name}}</h4>
+                    <p class="list-group-item-text">Rating:{{venue.rating}}</p>
+                    <p class="list-group-item-text">Based on {{venue.review_count}} reviews</p>
                 </div>
                 <span class="pull-right">
                     <img class="img-responsive"
