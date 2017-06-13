@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { AuthService } from "../auth/auth.service";
 import { ApiService } from "../api.service";
@@ -9,7 +9,7 @@ import { Venue } from '../venue';
   templateUrl: './venue-display.component.html',
   styleUrls: ['./venue-display.component.css']
 })
-export class VenueDisplayComponent implements OnInit, OnChanges {
+export class VenueDisplayComponent implements OnInit {
 
   venues: Venue[] = [];
 
@@ -17,11 +17,17 @@ export class VenueDisplayComponent implements OnInit, OnChanges {
 
   ngOnInit() {
     this.apiService.changeInVenues.subscribe(
-      (newVenues: Venue[]) => this.venues = newVenues
-      );
+      (newVenues: Venue[]) => {
+        this.venues = newVenues;
+        this.getAttendance();
+      });
   }
 
-  ngOnChanges(){    
+  getAttendance(){
+     this.apiService.getAttendance(this.venues)
+          .subscribe(
+        (data: Response) => console.log(data)
+      );
   }
 
   hasToken(){  

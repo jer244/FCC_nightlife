@@ -28,6 +28,7 @@
     "jsonwebtoken": "^7.4.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.9.3",
+    "mongoose-unique-validator": "^1.0.5",
     "ng2-bootstrap": "^1.6.1",
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",

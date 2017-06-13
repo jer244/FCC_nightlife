@@ -3,15 +3,12 @@ var Schema = mongoose.Schema;
 
 var venueSchema = new Schema ({
     venueId: {type: String, required: true},
-    userId: {type: String, required: true },
-    numGoing: {type: Number, required: true, default: 0}
+    users: [{type: String }]
 });
 
 venueSchema.methods.addUser = function(){
   return ;
 };
-
-
 
 var Venue = mongoose.model('Venue', venueSchema);
 

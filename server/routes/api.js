@@ -18,9 +18,20 @@ router.get('/bars/:location', (req, res) => {
     });
 });
 
+router.get('/attendance/:id',  (req, res) => {
+    res.send({'venue': req.params.id});
+})
+
+router.post('/attendance',  (req, res) => {
+    let body = req.body;
+    res.send(body);
+})
+
+/*
 router.get('/protected', passport.authenticate('jwt-strategy', {session: false}), (req, res) => {
     res.send({'success': true});
 })
+*/
 
 //mongoose.connect('mongodb://test:test@ds157040.mlab.com:57040/fcc-nightlife');
 

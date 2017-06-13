@@ -18,15 +18,8 @@ export class LandingComponent implements OnInit {
   ngOnInit() {
   }
 
-    hasToken(){  
+  hasToken(){  
     return this.authService.hasToken();
-  }
-
-  testProtected() {
-    this.apiService.checkProtected()
-      .subscribe(
-        (data: Response) => console.log(data)
-      );
   }
 
   onSubmit(form: NgForm) {
