@@ -11,7 +11,7 @@ import { Venue } from '../venue';
 })
 export class VenueDisplayComponent implements OnInit {
 
-  venues: Venue[] = [];
+  venues: Venue[];
 
   constructor(private apiService: ApiService, private authService: AuthService) { }
 

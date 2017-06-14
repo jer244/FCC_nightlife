@@ -4,7 +4,7 @@
             <li><a routerLinkActive="active" [routerLink]="['/']">Nightlife</a></li>
             <li><a routerLinkActive="active" [routerLink]="['/auth/signup']" *ngIf="!hasToken()">Sign Up</a></li>
             <li><a routerLinkActive="active" [routerLink]="['/auth/login']" *ngIf="!hasToken()">Login</a></li>
-            <li><a routerLinkActive="active" [routerLink]="['/auth/logout']" *ngIf="hasToken()">Logout</a></li>
+            <li><a routerLinkActive="active" [routerLink]="['/']" *ngIf="hasToken()" (click)="onLogout()">Logout</a></li>
         </ul>
     </nav>
 </header>
