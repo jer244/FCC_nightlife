@@ -16,6 +16,8 @@ export class VenueDisplayComponent implements OnInit {
   constructor(private apiService: ApiService, private authService: AuthService) { }
 
   ngOnInit() {
+    this.venues = this.apiService.getCurrentBars();
+    console.log("init - venues[] = ", this.venues)
     this.apiService.changeInVenues.subscribe(
       (newVenues: Venue[]) => {
         this.venues = newVenues;

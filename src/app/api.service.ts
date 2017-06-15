@@ -12,6 +12,10 @@ export class ApiService {
 
   constructor(private http: Http) { }
 
+  getCurrentBars(){
+    return this.venues;
+  }
+
   getBars(location: string) {
     this.venues=[];
     //Yelp API prohibits calls from client, must use backend 
