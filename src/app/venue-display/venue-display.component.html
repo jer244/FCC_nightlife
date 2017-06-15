@@ -5,7 +5,7 @@
 <ul class="list-group" *ngIf="hasToken()">
     <div class="row">
         <div class="col-xs-12"*ngFor="let venue of venues; let i index" >
-            <button>
+            <button (click)="addUser({{venue.id}})">
                 Going
             </button>
             <a target="_blank" href="{{venue.url}}" class="list-group-item clearfix">

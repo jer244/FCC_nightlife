@@ -38,5 +38,9 @@ export class ApiService {
           .catch((error: Response) => Observable.throw(error));
    }   
 
+   addUser(venueId: string) {
+     
+   }
+
   
 }

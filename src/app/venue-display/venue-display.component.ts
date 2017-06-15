@@ -25,6 +25,13 @@ export class VenueDisplayComponent implements OnInit {
       });
   }
 
+  addUser(venueId: string){
+    this.apiService(addUser(venueId))
+      .subscribe(
+        (data:Response) => console.log(data)
+      );
+  }
+
   getAttendance(){
      this.apiService.getAttendance(this.venues)
           .subscribe(
