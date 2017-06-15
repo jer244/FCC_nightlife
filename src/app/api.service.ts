@@ -39,7 +39,7 @@ export class ApiService {
    }   
 
    addUser(venueId: string) {
-     
+     console.log("addUser to ", venueId);
    }
 
   

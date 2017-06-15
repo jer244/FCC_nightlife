@@ -3,11 +3,13 @@
         -includes # of people attending and ability to add/remove self from venues
 -->
 <ul class="list-group" *ngIf="hasToken()">
-    <div class="row">
-        <div class="col-xs-12"*ngFor="let venue of venues; let i index" >
-            <button (click)="addUser({{venue.id}})">
+    <div class="row" *ngFor="let venue of venues; let i index">
+        <div class="col-xs-1">
+            <button (click)="addUser(venue.id)">
                 Going
             </button>
+        </div>
+        <div class="col-xs-11">
             <a target="_blank" href="{{venue.url}}" class="list-group-item clearfix">
                 <div class="col-xs-5 pull-left">
                     <h4 class="list-group-item-heading">{{venue.name}}</h4>
