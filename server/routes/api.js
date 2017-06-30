@@ -3,7 +3,7 @@ const router = express.Router();
 const passport = require('passport');
 const passportJWT = require('passport-jwt');
 const jwt = require('jsonwebtoken');
-
+const async = require('async');
 
 
 const yelp = require('yelp-fusion');
@@ -24,8 +24,19 @@ router.get('/attendance/:id',  (req, res) => {
 
 router.post('/attendance',  (req, res) => {
     let body = req.body;
-    console.log(body);
-    res.send(body);
+    async.map(body, updateUsers, function(err, results) {
+        if(err){
+            res.send({'error': err})
+        }else{
+            console.log(results);
+            res.send(results);
+        }
+    })
+
+    function updateUsers(item, next){
+        item.users.push("me");
+        next(false, item);
+    }
 })
 
 /*
