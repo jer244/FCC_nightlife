@@ -7,9 +7,9 @@ export class Venue {
         public review_count: number,
         public price: string,
         public id: string,
-        public num_attending?: number
+        public users?: string[]
     ) {
-        this.num_attending=0;
+        this.users=[];
     };
 }
 

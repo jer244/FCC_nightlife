@@ -24,6 +24,7 @@ router.get('/attendance/:id',  (req, res) => {
 
 router.post('/attendance',  (req, res) => {
     let body = req.body;
+    console.log(body);
     res.send(body);
 })
 
